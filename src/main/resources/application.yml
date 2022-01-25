@@ -1,0 +1,13 @@
+server.port: ${APP_PORT:8086}
+spring:
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USER:admin}
+    password: ${RABBIT_PASS:admin}
+  cloud:
+    stream:
+      default-binder: rabbit
+      bindings:
+        eventsLog-out-0:
+          destination: event.type
